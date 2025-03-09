@@ -1,28 +1,24 @@
-import { Client, IntentsBitField } from "discord.js";
 import { config } from "dotenv";
+import { ai } from "./ai";
+import { getDiscordClient } from "./functions/getClient";
+import "./functions/sendGoodMorningMessages";
+
+const discordClient = getDiscordClient();
 
 config();
 
-const client = new Client({
-  intents: [
-    IntentsBitField.Flags.Guilds,
-    IntentsBitField.Flags.GuildMessages,
-    IntentsBitField.Flags.MessageContent,
-  ],
+discordClient.on("ready", () => {
+  console.log(`${discordClient.user?.tag} is online!`);
 });
 
-client.on("ready", () => {
-  console.log(`The bot ${client.user?.tag} is online!`);
-});
-
-client.on("messageCreate", (message) => {
+discordClient.on("messageCreate", async (message) => {
   if (message.author.bot) return;
 
   console.log(`${message.author.tag}: ${message.content}`);
 
-  if (message.content === "!ping") {
-    message.reply("Pong! 🏓");
-  }
+  const response = await ai(message.content, message.author.tag);
+
+  message.reply(response);
 });
 
-client.login(process.env.DISCORD_TOKEN);
+discordClient.login(process.env.DISCORD_TOKEN);
