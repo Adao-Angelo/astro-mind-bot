@@ -1,5 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import dotenv from "dotenv";
+import { prompts } from "./prompt";
 
 dotenv.config();
 
@@ -14,7 +15,7 @@ export async function ai(input: string, user: string) {
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
     const result = await model.generateContent(
-      `respond de forma simple: ${input}`
+      ` ${prompts.input} User message--->${input}`
     );
 
     return result.response.text();
