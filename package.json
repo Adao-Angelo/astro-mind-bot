@@ -1,16 +1,22 @@
 {
   "name": "angelo-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a  Angelo  personal virtual assistant",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tsx --watch  ./src/app.tsx"
+    "dev": "npx tsx --watch  ./src/app.ts"
   },
-  "keywords": [],
+  "keywords": [
+    "bot",
+    "angelo",
+    "assistant"
+  ],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.4.1",
   "dependencies": {
+    "discord.js": "^14.18.0",
+    "dotenv": "^16.4.7",
     "tsx": "^4.19.3"
   }
 }
