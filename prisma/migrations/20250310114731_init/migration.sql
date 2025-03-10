@@ -1,0 +1,25 @@
+-- CreateTable
+CREATE TABLE "Message" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "channelId" TEXT NOT NULL,
+    "guildId" TEXT NOT NULL,
+    "createdTimestamp" BIGINT NOT NULL,
+    "type" INTEGER NOT NULL,
+    "system" BOOLEAN NOT NULL,
+    "content" TEXT,
+    "authorId" TEXT NOT NULL,
+    "authorUsername" TEXT NOT NULL,
+    "authorGlobalName" TEXT,
+    "authorDiscriminator" TEXT NOT NULL,
+    "authorAvatar" TEXT,
+    "authorBot" BOOLEAN NOT NULL,
+    "authorSystem" BOOLEAN NOT NULL,
+    "pinned" BOOLEAN NOT NULL,
+    "tts" BOOLEAN NOT NULL,
+    "nonce" TEXT,
+    "editedTimestamp" BIGINT,
+    "webhookId" TEXT,
+    "applicationId" TEXT,
+    "activity" TEXT,
+    "flags" INTEGER NOT NULL
+);

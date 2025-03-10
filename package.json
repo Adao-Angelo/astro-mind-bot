@@ -4,7 +4,8 @@
   "description": "This is a  Angelo  personal virtual assistant",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tsx --watch  ./src/app.ts"
+    "dev": "npx tsx --watch  ./src/app.ts",
+    "db": "npx prisma dev migrate"
   },
   "keywords": [
     "bot",
@@ -21,6 +22,11 @@
     "dotenv": "^16.4.7",
     "node-cron": "^3.0.3",
     "openai": "^4.86.2",
+    "sqlite3": "^5.1.7",
     "tsx": "^4.19.3"
+  },
+  "devDependencies": {
+    "@prisma/client": "^6.4.1",
+    "prisma": "^6.4.1"
   }
 }
